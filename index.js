@@ -1,10 +1,10 @@
-const io = require("socket.io")(8000);
+const port = process.env.PORT || 8000;
+const io = require("socket.io")(port);
 
 const users = {};
 
 io.on("connection", (socket) => {
   socket.on("new-user-joined", (name) => {
-    // console.log("new user", name);
     users[socket.id] = name;
     socket.broadcast.emit("user-joined", name);
   });
