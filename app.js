@@ -1,5 +1,6 @@
-const port = process.env.PORT || 8000;
-const io = require("socket.io")(port);
+require("dotenv").config();
+const PORT = process.env.PORT || 8000;
+const io = require("socket.io")(PORT);
 
 const users = {};
 
